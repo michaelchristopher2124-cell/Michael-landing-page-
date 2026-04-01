@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Grand Lounge | Fine Dining & Luxury Lounge</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #fffef7;
+            color: #2c2c2c;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 254, 247, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.05);
+            z-index: 1000;
+            padding: 20px 0;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #c49a6c;
+            text-decoration: none;
+            letter-spacing: -0.02em;
+        }
+
+        .logo span {
+            color: #2c2c2c;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: #4a4a4a;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: #c49a6c;
+        }
+
+        .btn-reserve {
+            background: #c49a6c;
+            color: white;
+            padding: 10px 28px;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .btn-reserve:hover {
+            background: #a87b4a;
+            transform: translateY(-2px);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #2c2c2c;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.5)), url('https://images.pexels.com/photos/260922/pexels-photo-260922.jpeg?auto=compress&cs=tinysrgb&w=1600');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding-top: 80px;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            letter-spacing: -0.02em;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 32px;
+            opacity: 0.9;
+        }
+
+        .btn-primary {
+            background: #c49a6c;
+            color: white;
+            padding: 14px 40px;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: inline-block;
+        }
+
+        .btn-primary:hover {
+            background: #a87b4a;
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            border: 2px solid white;
+            color: white;
+            background: transparent;
+            padding: 12px 35px;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: inline-block;
+            margin-left: 15px;
+        }
+
+        .btn-outline:hover {
+            background: white;
+            color: #2c2c2c;
+        }
+
+        /* Sections */
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 16px;
+            color: #2c2c2c;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #6b6b6b;
+            margin-bottom: 48px;
+            font-size: 1.1rem;
+        }
+
+        /* About Section */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-image img {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        .about-text h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: #c49a6c;
+        }
+
+        .about-text p {
+            color: #4a4a4a;
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+
+        /* Featured Dishes */
+        .dishes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+        }
+
+        .dish-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            transition: all 0.3s;
+        }
+
+        .dish-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+        }
+
+        .dish-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .dish-content {
+            padding: 24px;
+            text-align: center;
+        }
+
+        .dish-content h3 {
+            font-size: 1.3rem;
+            margin-bottom: 8px;
+        }
+
+        .dish-price {
+            color: #c49a6c;
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-top: 12px;
+        }
+
+        /* Hours & Location */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 32px;
+            background: #f9f5ef;
+            padding: 48px;
+            border-radius: 24px;
+        }
+
+        .info-card {
+            text-align: center;
+        }
+
+        .info-card i {
+            font-size: 2.5rem;
+            color: #c49a6c;
+            margin-bottom: 16px;
+        }
+
+        .info-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 16px;
+        }
+
+        .info-card p {
+            color: #6b6b6b;
+            line-height: 1.6;
+        }
+
+        /* Testimonials */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 32px;
+        }
+
+        .testimonial-card {
+            background: #f9f5ef;
+            padding: 32px;
+            border-radius: 20px;
+            text-align: center;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            color: #4a4a4a;
+            margin-bottom: 20px;
+            line-height: 1.7;
+        }
+
+        .testimonial-author h4 {
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .testimonial-author p {
+            color: #c49a6c;
+            font-size: 0.85rem;
+        }
+
+        /* Footer */
+        .footer {
+            background: #1a1a1a;
+            color: #aaa;
+            padding: 60px 0 30px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            color: #c49a6c;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .footer-col p {
+            margin-bottom: 10px;
+            font-size: 0.9rem;
+        }
+
+        .footer-col i {
+            margin-right: 10px;
+            width: 25px;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #333;
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            .mobile-menu-btn {
+                display: block;
+            }
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+            .btn-outline {
+                margin-left: 0;
+                margin-top: 15px;
+            }
+            .section-title {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">The Grand <span>Lounge</span></a>
+            <div class="nav-links">
+                <a href="index.html" class="active">Home</a>
+                <a href="menu.html">Menu</a>
+                <a href="reservations.html">Reservations</a>
+                <a href="events.html">Events</a>
+                <a href="gallery.html">Gallery</a>
+                <a href="contact.html">Contact</a>
+                <a href="reservations.html" class="btn-reserve">Reserve a Table</a>
+            </div>
+            <div class="mobile-menu-btn"><i class="fas fa-bars"></i></div>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Elegance. Flavor. Experience.</h1>
+                <p>Discover an unforgettable dining experience where luxury meets culinary excellence.</p>
+                <a href="reservations.html" class="btn-primary">Book Your Table</a>
+                <a href="menu.html" class="btn-outline">View Menu</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-image">
+                    <img src="https://images.pexels.com/photos/67468/pexels-photo-67468.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Restaurant interior">
+                </div>
+                <div class="about-text">
+                    <h3>Welcome to The Grand Lounge</h3>
+                    <p>Nestled in the heart of Lagos, The Grand Lounge offers a sophisticated escape where exceptional cuisine meets refined ambiance. Our passion for culinary excellence is matched only by our commitment to unforgettable service.</p>
+                    <p>From our carefully curated wine selection to our signature dishes crafted by award-winning chefs, every detail is designed to delight the senses. Whether you're celebrating a special occasion or enjoying a quiet evening out, we invite you to experience the art of fine dining.</p>
+                    <p><strong>Open Daily | 12:00 PM - 12:00 AM</strong></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" style="background: #f9f5ef;">
+        <div class="container">
+            <h2 class="section-title">Signature Dishes</h2>
+            <p class="section-subtitle">Our chef's most celebrated creations</p>
+            <div class="dishes-grid">
+                <div class="dish-card">
+                    <img src="https://images.pexels.com/photos/1279330/pexels-photo-1279330.jpeg?auto=compress&cs=tinysrgb&w=600" class="dish-image" alt="Grilled Salmon">
+                    <div class="dish-content">
+                        <h3>Grilled Atlantic Salmon</h3>
+                        <p>Fresh salmon with lemon butter sauce, served with seasonal vegetables</p>
+                        <div class="dish-price">₦15,500</div>
+                    </div>
+                </div>
+                <div class="dish-card">
+                    <img src="https://images.pexels.com/photos/1199957/pexels-photo-1199957.jpeg?auto=compress&cs=tinysrgb&w=600" class="dish-image" alt="Beef Tenderloin">
+                    <div class="dish-content">
+                        <h3>Prime Beef Tenderloin</h3>
+                        <p>Premium cut with red wine reduction, truffle mashed potatoes</p>
+                        <div class="dish-price">₦22,000</div>
+                    </div>
+                </div>
+                <div class="dish-card">
+                    <img src="https://images.pexels.com/photos/1055037/pexels-photo-1055037.jpeg?auto=compress&cs=tinysrgb&w=600" class="dish-image" alt="Lobster">
+                    <div class="dish-content">
+                        <h3>Butter Poached Lobster</h3>
+                        <p>Fresh Atlantic lobster with garlic herb butter and saffron rice</p>
+                        <div class="dish-price">₦28,500</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="info-grid">
+                <div class="info-card">
+                    <i class="fas fa-clock"></i>
+                    <h3>Opening Hours</h3>
+                    <p>Monday - Friday: 12:00 PM - 12:00 AM<br>Saturday: 1:00 PM - 2:00 AM<br>Sunday: 1:00 PM - 11:00 PM</p>
+                </div>
+                <div class="info-card">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h3>Location</h3>
+                    <p>12 Admiralty Way, Lekki Phase 1,<br>Lagos, Nigeria</p>
+                </div>
+                <div class="info-card">
+                    <i class="fas fa-phone-alt"></i>
+                    <h3>Reservations</h3>
+                    <p>+234 803 295 8122<br>reservations@grandlounge.com</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" style="background: #f9f5ef;">
+        <div class="container">
+            <h2 class="section-title">What Our Guests Say</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"Absolutely exquisite! The ambiance, the service, and most importantly the food exceeded all expectations. Will definitely return!"</p>
+                    <div class="testimonial-author">
+                        <h4>Sarah Johnson</h4>
+                        <p>Regular Guest</p>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"The best fine dining experience in Lagos. The wine selection is phenomenal and the staff is incredibly attentive."</p>
+                    <div class="testimonial-author">
+                        <h4>Michael Adebayo</h4>
+                        <p>Food Critic</p>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"Celebrated our anniversary here and it was magical. The private dining area made it extra special."</p>
+                    <div class="testimonial-author">
+                        <h4>Chioma & David</h4>
+                        <p>Anniversary Dinner</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>The Grand Lounge</h4>
+                    <p>Luxury dining at its finest. Experience the perfect blend of exquisite cuisine and sophisticated ambiance.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <p><i class="fas fa-chevron-right"></i> <a href="menu.html" style="color:#aaa; text-decoration:none;">Menu</a></p>
+                    <p><i class="fas fa-chevron-right"></i> <a href="reservations.html" style="color:#aaa; text-decoration:none;">Reservations</a></p>
+                    <p><i class="fas fa-chevron-right"></i> <a href="events.html" style="color:#aaa; text-decoration:none;">Private Events</a></p>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <p><i class="fas fa-phone"></i> 0803 295 8122</p>
+                    <p><i class="fas fa-envelope"></i> info@grandlounge.com</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Lekki Phase 1, Lagos</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Follow Us</h4>
+                    <p><i class="fab fa-instagram"></i> @thegrandlounge</p>
+                    <p><i class="fab fa-facebook"></i> The Grand Lounge</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2024 The Grand Lounge. All rights reserved. | Website by Michael WebDev</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.querySelector('.mobile-menu-btn')?.addEventListener('click', function() {
+            const links = document.querySelector('.nav-links');
+            if (links.style.display === 'flex') {
+                links.style.display = 'none';
+            } else {
+                links.style.display = 'flex';
+                links.style.flexDirection = 'column';
+                links.style.position = 'absolute';
+                links.style.top = '70px';
+                links.style.left = '0';
+                links.style.right = '0';
+                links.style.backgroundColor = '#fffef7';
+                links.style.padding = '24px';
+                links.style.boxShadow = '0 10px 15px -3px rgba(0,0,0,0.1)';
+                links.style.zIndex = '1000';
+            }
+        });
+    </script>
+</body>
+</html>
