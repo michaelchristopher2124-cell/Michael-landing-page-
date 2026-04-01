@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Membership | Iron Strong Gym</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #ffffff;
+            color: #1a1a1a;
+            line-height: 1.5;
+        }
+        .container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: #ffffff;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            z-index: 1000;
+            padding: 20px 0;
+        }
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        .logo { font-size: 1.5rem; font-weight: 800; color: #1a1a1a; text-decoration: none; }
+        .logo span { color: #2563eb; }
+        .nav-links { display: flex; gap: 32px; align-items: center; }
+        .nav-links a { color: #4b5563; text-decoration: none; font-weight: 500; }
+        .nav-links a:hover, .nav-links a.active { color: #2563eb; }
+        .btn-primary {
+            background: #2563eb;
+            color: white;
+            padding: 10px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .mobile-menu-btn { display: none; font-size: 1.5rem; cursor: pointer; }
+        
+        .page-header {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=2000');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 160px 0 80px;
+            text-align: center;
+        }
+        .page-header h1 { font-size: 3rem; margin-bottom: 16px; }
+        
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 32px;
+            padding: 80px 0;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        .pricing-card {
+            background: #ffffff;
+            border: 1px solid #e5e7eb;
+            border-radius: 24px;
+            padding: 32px;
+            text-align: center;
+            transition: all 0.3s;
+        }
+        .pricing-card.featured {
+            border-color: #2563eb;
+            box-shadow: 0 20px 25px -12px rgba(37,99,235,0.15);
+            transform: scale(1.02);
+        }
+        .pricing-card h3 { font-size: 1.5rem; margin-bottom: 8px; }
+        .price { font-size: 2.5rem; font-weight: 800; color: #2563eb; margin: 24px 0; }
+        .price span { font-size: 1rem; font-weight: 400; color: #6b7280; }
+        .features-list { list-style: none; margin: 24px 0; text-align: left; }
+        .features-list li { padding: 10px 0; display: flex; align-items: center; gap: 12px; color: #4b5563; }
+        .features-list i { color: #10b981; width: 20px; }
+        .btn-outline {
+            border: 1px solid #2563eb;
+            color: #2563eb;
+            background: transparent;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            width: 100%;
+            text-align: center;
+        }
+        .btn-outline:hover { background: #2563eb; color: white; }
+        
+        .footer {
+            background: #0f172a;
+            color: #94a3b8;
+            padding: 48px 0;
+            text-align: center;
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .mobile-menu-btn { display: block; }
+            .page-header h1 { font-size: 2rem; }
+            .pricing-card.featured { transform: none; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">Iron <span>Strong</span></a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="classes.html">Classes</a>
+                <a href="trainers.html">Trainers</a>
+                <a href="membership.html" class="active">Membership</a>
+                <a href="gallery.html">Gallery</a>
+                <a href="contact.html" class="btn-primary">Join Now</a>
+            </div>
+            <div class="mobile-menu-btn"><i class="fas fa-bars"></i></div>
+        </div>
+    </nav>
+
+    <section class="page-header">
+        <div class="container">
+            <h1>Membership Plans</h1>
+            <p>Choose the plan that fits your fitness journey</p>
+        </div>
+    </section>
+
+    <div class="container">
+        <div class="pricing-grid">
+            <div class="pricing-card">
+                <h3>Basic</h3>
+                <div class="price">₦25,000 <span>/month</span></div>
+                <ul class="features-list">
+                    <li><i class="fas fa-check-circle"></i> Full gym access</li>
+                    <li><i class="fas fa-check-circle"></i> Locker room access</li>
+                    <li><i class="fas fa-check-circle"></i> 2 group classes per month</li>
+                    <li><i class="fas fa-check-circle"></i> Standard equipment access</li>
+                </ul>
+                <a href="contact.html" class="btn-outline">Get Started</a>
+            </div>
+            <div class="pricing-card featured">
+                <h3>Premium</h3>
+                <div class="price">₦45,000 <span>/month</span></div>
+                <ul class="features-list">
+                    <li><i class="fas fa-check-circle"></i> Everything in Basic</li>
+                    <li><i class="fas fa-check-circle"></i> Unlimited group classes</li>
+                    <li><i class="fas fa-check-circle"></i> Personal trainer (1x/week)</li>
+                    <li><i class="fas fa-check-circle"></i> Nutrition consultation</li>
+                    <li><i class="fas fa-check-circle"></i> Access to premium equipment</li>
+                </ul>
+                <a href="contact.html" class="btn-primary">Most Popular</a>
+            </div>
+            <div class="pricing-card">
+                <h3>Annual</h3>
+                <div class="price">₦450,000 <span>/year</span></div>
+                <ul class="features-list">
+                    <li><i class="fas fa-check-circle"></i> All Premium benefits</li>
+                    <li><i class="fas fa-check-circle"></i> 2 months free</li>
+                    <li><i class="fas fa-check-circle"></i> Free Iron Strong merchandise</li>
+                    <li><i class="fas fa-check-circle"></i> 4 guest passes per year</li>
+                    <li><i class="fas fa-check-circle"></i> Priority class booking</li>
+                </ul>
+                <a href="contact.html" class="btn-outline">Best Value</a>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <p>© 2024 Iron Strong Gym — Premier Fitness Center in Lagos</p>
+            <p>📍 12 Admiralty Way, Lekki Phase 1, Lagos | 📞 0803 295 8122</p>
+        </div>
+    </footer>
+
+    <script>
+        document.querySelector('.mobile-menu-btn')?.addEventListener('click', function() {
+            const links = document.querySelector('.nav-links');
+            if (links.style.display === 'flex') links.style.display = 'none';
+            else {
+                links.style.display = 'flex';
+                links.style.flexDirection = 'column';
+                links.style.position = 'absolute';
+                links.style.top = '70px';
+                links.style.left = '0';
+                links.style.right = '0';
+                links.style.backgroundColor = '#ffffff';
+                links.style.padding = '24px';
+                links.style.boxShadow = '0 10px 15px -3px rgba(0,0,0,0.1)';
+            }
+        });
+    </script>
+</body>
+</html>
