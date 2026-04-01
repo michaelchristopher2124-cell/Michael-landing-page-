@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iron Strong Gym | Premier Fitness Center in Lagos</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #ffffff;
+            color: #1a1a1a;
+            line-height: 1.5;
+        }
+        .container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
+        
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: #ffffff;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            z-index: 1000;
+            padding: 20px 0;
+        }
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: #1a1a1a;
+            text-decoration: none;
+            letter-spacing: -0.02em;
+        }
+        .logo span { color: #2563eb; }
+        .nav-links { display: flex; gap: 32px; align-items: center; }
+        .nav-links a {
+            color: #4b5563;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        .nav-links a:hover, .nav-links a.active { color: #2563eb; }
+        .btn-primary {
+            background: #2563eb;
+            color: white;
+            padding: 10px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.2s;
+            display: inline-block;
+        }
+        .btn-primary:hover { background: #1d4ed8; }
+        .btn-outline {
+            border: 1px solid #2563eb;
+            color: #2563eb;
+            background: transparent;
+            padding: 10px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.2s;
+            display: inline-block;
+        }
+        .btn-outline:hover { background: #2563eb; color: white; }
+        .mobile-menu-btn { display: none; font-size: 1.5rem; cursor: pointer; }
+        
+        .hero {
+            min-height: 90vh;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=2000');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            color: white;
+            padding-top: 80px;
+        }
+        .hero h1 { font-size: 4rem; font-weight: 800; margin-bottom: 24px; line-height: 1.2; }
+        .hero h1 span { color: #2563eb; }
+        .hero p { font-size: 1.25rem; margin-bottom: 32px; opacity: 0.9; max-width: 600px; }
+        
+        .section { padding: 80px 0; }
+        .section-title { font-size: 2rem; font-weight: 700; margin-bottom: 16px; text-align: center; }
+        .section-subtitle { text-align: center; color: #6b7280; margin-bottom: 48px; }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 32px;
+            text-align: center;
+        }
+        .stat-card h3 { font-size: 2.5rem; font-weight: 800; color: #2563eb; }
+        .stat-card p { color: #6b7280; margin-top: 8px; }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 32px;
+        }
+        .feature-card {
+            background: #f8fafc;
+            padding: 32px;
+            border-radius: 16px;
+            text-align: center;
+        }
+        .feature-card i { font-size: 2rem; color: #2563eb; margin-bottom: 16px; }
+        .feature-card h3 { font-size: 1.25rem; margin-bottom: 8px; }
+        .feature-card p { color: #6b7280; font-size: 0.875rem; }
+        
+        .footer {
+            background: #0f172a;
+            color: #94a3b8;
+            padding: 48px 0;
+            text-align: center;
+        }
+        .footer p { margin: 8px 0; font-size: 0.875rem; }
+        
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .mobile-menu-btn { display: block; }
+            .hero h1 { font-size: 2.5rem; }
+            .stats-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">Iron <span>Strong</span></a>
+            <div class="nav-links">
+                <a href="index.html" class="active">Home</a>
+                <a href="classes.html">Classes</a>
+                <a href="trainers.html">Trainers</a>
+                <a href="membership.html">Membership</a>
+                <a href="gallery.html">Gallery</a>
+                <a href="contact.html" class="btn-primary">Join Now</a>
+            </div>
+            <div class="mobile-menu-btn"><i class="fas fa-bars"></i></div>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="container">
+            <div>
+                <h1>Transform Your <span>Body</span><br>Transform Your <span>Life</span></h1>
+                <p>State-of-the-art equipment, expert trainers, and a community that pushes you to be your best.</p>
+                <a href="membership.html" class="btn-primary">Start Your Journey</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Why Choose Iron Strong</h2>
+            <div class="stats-grid">
+                <div class="stat-card"><h3>5,000+</h3><p>Active Members</p></div>
+                <div class="stat-card"><h3>50+</h3><p>Expert Trainers</p></div>
+                <div class="stat-card"><h3>30+</h3><p>Weekly Classes</p></div>
+                <div class="stat-card"><h3>10,000+</h3><p>Success Stories</p></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" style="background: #f8fafc;">
+        <div class="container">
+            <h2 class="section-title">Our Facilities</h2>
+            <div class="features-grid">
+                <div class="feature-card"><i class="fas fa-dumbbell"></i><h3>Strength Training</h3><p>Free weights, machines, and functional training zones</p></div>
+                <div class="feature-card"><i class="fas fa-heartbeat"></i><h3>Cardio Area</h3><p>Treadmills, ellipticals, rowers, and bikes</p></div>
+                <div class="feature-card"><i class="fas fa-lock"></i><h3>Locker Rooms</h3><p>Clean, secure lockers with showers and sauna</p></div>
+                <div class="feature-card"><i class="fas fa-chalkboard-teacher"></i><h3>Studio Classes</h3><p>Yoga, HIIT, spin, and more</p></div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>© 2024 Iron Strong Gym — Premier Fitness Center in Lagos</p>
+            <p>📍 12 Admiralty Way, Lekki Phase 1, Lagos | 📞 0803 295 8122</p>
+        </div>
+    </footer>
+
+    <script>
+        document.querySelector('.mobile-menu-btn')?.addEventListener('click', function() {
+            const links = document.querySelector('.nav-links');
+            if (links.style.display === 'flex') {
+                links.style.display = 'none';
+            } else {
+                links.style.display = 'flex';
+                links.style.flexDirection = 'column';
+                links.style.position = 'absolute';
+                links.style.top = '70px';
+                links.style.left = '0';
+                links.style.right = '0';
+                links.style.backgroundColor = '#ffffff';
+                links.style.padding = '24px';
+                links.style.boxShadow = '0 10px 15px -3px rgba(0,0,0,0.1)';
+            }
+        });
+    </script>
+</body>
+</html>
