@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Michael WebDev | Professional Business Websites</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #ffffff;
+            color: #1a1a1a;
+            line-height: 1.5;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: #ffffff;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            z-index: 1000;
+            padding: 20px 0;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1a1a1a;
+            text-decoration: none;
+            letter-spacing: -0.02em;
+        }
+
+        .logo span {
+            color: #2563eb;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: #4b5563;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: #2563eb;
+        }
+
+        .btn-primary {
+            background: #2563eb;
+            color: white;
+            padding: 10px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.2s;
+            display: inline-block;
+        }
+
+        .btn-primary:hover {
+            background: #1d4ed8;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #1a1a1a;
+        }
+
+        .hero {
+            min-height: 90vh;
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            display: flex;
+            align-items: center;
+            padding-top: 80px;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 24px;
+            color: #0f172a;
+            letter-spacing: -0.02em;
+        }
+
+        .hero h1 span {
+            color: #2563eb;
+        }
+
+        .hero p {
+            font-size: 1.125rem;
+            color: #4b5563;
+            margin-bottom: 32px;
+            line-height: 1.6;
+        }
+
+        .hero-image img {
+            width: 100%;
+            border-radius: 24px;
+            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
+        }
+
+        .stats {
+            display: flex;
+            gap: 48px;
+            margin-top: 48px;
+        }
+
+        .stat h3 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #2563eb;
+        }
+
+        .stat p {
+            font-size: 0.875rem;
+            color: #6b7280;
+            margin: 0;
+        }
+
+        .industries {
+            padding: 80px 0;
+            background: #ffffff;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: #0f172a;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #6b7280;
+            margin-bottom: 48px;
+            font-size: 1.125rem;
+        }
+
+        .industry-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 32px;
+        }
+
+        .industry-card {
+            background: #ffffff;
+            border: 1px solid #e5e7eb;
+            border-radius: 16px;
+            overflow: hidden;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: block;
+        }
+
+        .industry-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 25px -12px rgba(0,0,0,0.1);
+            border-color: #2563eb;
+        }
+
+        .industry-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .industry-content {
+            padding: 24px;
+        }
+
+        .industry-content h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #0f172a;
+            margin-bottom: 8px;
+        }
+
+        .industry-content p {
+            color: #6b7280;
+            font-size: 0.875rem;
+            line-height: 1.5;
+        }
+
+        .features {
+            background: #f8fafc;
+            padding: 80px 0;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 32px;
+        }
+
+        .feature-card {
+            background: #ffffff;
+            padding: 32px;
+            border-radius: 16px;
+            border: 1px solid #e5e7eb;
+            text-align: center;
+        }
+
+        .feature-icon {
+            font-size: 2rem;
+            margin-bottom: 16px;
+        }
+
+        .feature-card h3 {
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .feature-card p {
+            color: #6b7280;
+            font-size: 0.875rem;
+            line-height: 1.5;
+        }
+
+        .pricing {
+            padding: 80px 0;
+            background: #ffffff;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 32px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .pricing-card {
+            background: #ffffff;
+            border: 1px solid #e5e7eb;
+            border-radius: 16px;
+            padding: 32px;
+            text-align: center;
+        }
+
+        .pricing-card.featured {
+            border-color: #2563eb;
+            box-shadow: 0 20px 25px -12px rgba(37,99,235,0.1);
+        }
+
+        .pricing-card h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        .price {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #2563eb;
+            margin-bottom: 24px;
+        }
+
+        .price span {
+            font-size: 1rem;
+            font-weight: 400;
+            color: #6b7280;
+        }
+
+        .pricing-features {
+            list-style: none;
+            margin: 24px 0;
+        }
+
+        .pricing-features li {
+            padding: 8px 0;
+            color: #4b5563;
+            font-size: 0.875rem;
+        }
+
+        .pricing-features i {
+            color: #10b981;
+            margin-right: 8px;
+        }
+
+        .contact {
+            background: #f8fafc;
+            padding: 80px 0;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: start;
+        }
+
+        .contact-info h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .contact-details {
+            margin: 32px 0;
+        }
+
+        .contact-details p {
+            margin: 16px 0;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: #4b5563;
+        }
+
+        .contact-details i {
+            width: 24px;
+            color: #2563eb;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 14px 16px;
+            background: #ffffff;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.875rem;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #2563eb;
+        }
+
+        .footer {
+            background: #0f172a;
+            color: #94a3b8;
+            padding: 48px 0;
+            text-align: center;
+        }
+
+        .footer p {
+            margin: 8px 0;
+            font-size: 0.875rem;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            .mobile-menu-btn {
+                display: block;
+            }
+            .hero-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .stats {
+                justify-content: center;
+            }
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            .industry-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">Michael <span>WebDev</span></a>
+            <div class="nav-links">
+                <a href="#industries">Industries</a>
+                <a href="#features">Features</a>
+                <a href="#pricing">Pricing</a>
+                <a href="#contact" class="btn-primary">Contact Michael</a>
+            </div>
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-grid">
+                <div>
+                    <h1>Professional Websites for <span>Nigerian Businesses</span></h1>
+                    <p>I build premium, mobile-friendly websites that help businesses grow. Complete with online ordering, booking systems, and manager dashboards. No monthly fees, no hidden costs.</p>
+                    <div>
+                        <a href="#contact" class="btn-primary">Start Your Project</a>
+                    </div>
+                    <div class="stats">
+                        <div class="stat">
+                            <h3>17+</h3>
+                            <p>Industries Served</p>
+                        </div>
+                        <div class="stat">
+                            <h3>24hr</h3>
+                            <p>Response Time</p>
+                        </div>
+                        <div class="stat">
+                            <h3>100%</h3>
+                            <p>Your Revenue</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Business website dashboard">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="industries" class="industries">
+        <div class="container">
+            <h2 class="section-title">Industries I Serve</h2>
+            <p class="section-subtitle">Click any industry to see a complete website demo</p>
+            <div class="industry-grid">
+                <!-- 1. Restaurant & Lounge - Fine dining interior -->
+                <a href="restaurant/index.html" class="industry-card">
+                    <img src="https://images.pexels.com/photos/260922/pexels-photo-260922.jpeg?auto=compress&cs=tinysrgb&w=600" class="industry-image" alt="Elegant restaurant interior with tables">
+                    <div class="industry-content">
+                        <h3>Restaurants & Lounges</h3>
+                        <p>Online ordering, VIP tables, event management</p>
+                    </div>
+                </a>
+                <!-- 2. Baby Care & Maternity - Mother with baby -->
+                <a href="babycare/index.html" class="industry-card">
+                    <img src="https://images.pexels.com/photos/2261021/pexels-photo-2261021.jpeg?auto=compress&cs=tinysrgb&w=600" class="industry-image" alt="Mother holding baby">
+                    <div class="industry-content">
+                        <h3>Baby Care & Maternity</h3>
+                        <p>Product catalog, baby registry, classes</p>
+                    </div>
+                </a>
+                <!-- 3. Skincare & Beauty - Skincare products on table -->
+                <a href="skincare/index.html" class="industry-card">
+                    <img src="https://images.pexels.com/photos/3962290/pexels-photo-3962290.jpeg?auto=compress&cs=tinysrgb&w=600" class="industry-image" alt="Luxury skincare products">
+                    <div class="industry-content">
+                        <h3>Skincare & Beauty</h3>
+                        <p>Appointments, products, loyalty program</p>
+                    </div>
+                </a>
+                <!-- 4. Boutique & Fashion - Fashion store with clothes -->
+                <a href="boutique/index.html" class="industry-card">
+                    <img src="https://images.pexels.com/photos/994523/pexels-photo-994523.jpeg?auto=compress&cs=tinysrgb&w=600" class="industry-image" alt="Fashion boutique with clothing racks">
+                    <div class="industry-content">
+                        <h3>Boutique & Fashion</h3>
+                        <p>Online store, lookbook, wishlist</p>
+                    </div>
+                </a>
+                <!-- 5. Salon & Spa - Hair styling station -->
+                <a href="salon/index.html" class="industry-card">
+                    <img src="https://images.pexels.com/photos/3993449/pexels-photo-3993449.jpeg?auto=compress&cs=tinysrgb&w=600" class="industry-image" alt="Salon hair styling">
+                    <div class="industry-content">
+                        <h3>Salon & Spa</h3>
+                        <p>Staff profiles, booking, memberships</p>
+                    </div>
+                </a>
+                <!-- 6. Hairstylist & Barber - Barber cutting hair -->
+                <a href="hairstylist/index.html" class="industry-card">
+                    <img src="https://images.pexels.com/photos/3998427/pexels-photo-3998427.jpeg?auto=compress&cs=tinysrgb&w=600" class="industry-image" alt="Barber cutting client's hair">
+                    <div class="industry-content">
+                        <h3>Hairstylist & Barber</h3>
+                        <p>Portfolio, appointment booking, styles</p>
+                    </div>
+                </a>
+                <!-- 7. Bakery & Catering - Fresh bread and pastries -->
+                <a href="bakery/index.html" class="industry-card">
+                    <img src="https://images.pexels.com/photos/1126359/pexels-photo-1126359.jpeg?auto=compress&cs=tinysrgb&w=600" class="industry-image" alt="Fresh baked bread and pastries">
+                    <div class="industry-content">
+                        <h3>Bakery & Catering</h3>
+                        <p>Custom orders, delivery, catering packages</p>
+                    </div>
+                </a>
+                <!-- 8. Gym & Fitness - Person lifting weights -->
+                <a href="gym/index.html" class="industry-card">
+                    <img src="https://images.pexels.com/photos/416249/pexels-photo-416249.jpeg?auto=compress&cs=tinysrgb&w=600" class="industry-image" alt="Person lifting weights at gym">
+                    <div class="industry-content">
+                        <h3>Gym & Fitness</h3>
+                        <p>Class schedules, memberships, trainers</p>
+                    </div>
+                </a>
+                <!-- 9. Pharmacy & Health - Pharmacist at counter -->
+                <a href="pharmacy/index.html" class="industry-card">
+                    <img src="https://images.pexels.com/photos/4386467/pexels-photo-4386467.jpeg?auto=compress&cs=tinysrgb&w=600" class="industry-image" alt="Pharmacist at pharmacy counter">
+                    <div class="industry-content">
+                        <h3>Pharmacy & Health</h3>
+                        <p>Medicine catalog, prescription upload</p>
+                    </div>
+                </a>
+                <!-- 10. Photography - Photographer with camera -->
+                <a href="photography/index.html" class="industry-card">
+                    <img src="https://images.pexels.com/photos/2253871/pexels-photo-2253871.jpeg?auto=compress&cs=tinysrgb&w=600" class="industry-image" alt="Photographer taking photos">
+                    <div class="industry-content">
+                        <h3>Photography</h3>
+                        <p>Portfolio, packages, client galleries</p>
+                    </div>
+                </a>
+                <!-- 11. Event Planning - Wedding setup and decorations -->
+                <a href="event-planning/index.html" class="industry-card">
+                    <img src="https://images.pexels.com/photos/587741/pexels-photo-587741.jpeg?auto=compress&cs=tinysrgb&w=600" class="industry-image" alt="Elegant wedding event setup">
+                    <div class="industry-content">
+                        <h3>Event Planning</h3>
+                        <p>Vendors, packages, budget tools</p>
+                    </div>
+                </a>
+                <!-- 12. Hotel & Lodging - Luxury hotel bedroom -->
+                <a href="hotel/index.html" class="industry-card">
+                    <img src="https://images.pexels.com/photos/261169/pexels-photo-261169.jpeg?auto=compress&cs=tinysrgb&w=600" class="industry-image" alt="Luxury hotel bedroom">
+                    <div class="industry-content">
+                        <h3>Hotel & Lodging</h3>
+                        <p>Room booking, amenities, concierge</p>
+                    </div>
+                </a>
+                <!-- 13. Real Estate - Modern luxury home -->
+                <a href="real-estate/index.html" class="industry-card">
+                    <img src="https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg?auto=compress&cs=tinysrgb&w=600" class="industry-image" alt="Modern luxury house">
+                    <div class="industry-content">
+                        <h3>Real Estate</h3>
+                        <p>Property listings, virtual tours</p>
+                    </div>
+                </a>
+                <!-- 14. Auto Dealership - Luxury car showroom -->
+                <a href="auto/index.html" class="industry-card">
+                    <img src="https://images.pexels.com/photos/112460/pexels-photo-112460.jpeg?auto=compress&cs=tinysrgb&w=600" class="industry-image" alt="Luxury car showroom">
+                    <div class="industry-content">
+                        <h3>Auto Dealership</h3>
+                        <p>Inventory, financing, service booking</p>
+                    </div>
+                </a>
+                <!-- 15. Pet Store & Grooming - Dog getting groomed -->
+                <a href="pet-store/index.html" class="industry-card">
+                    <img src="https://images.pexels.com/photos/4588058/pexels-photo-4588058.jpeg?auto=compress&cs=tinysrgb&w=600" class="industry-image" alt="Pet grooming service">
+                    <div class="industry-content">
+                        <h3>Pet Store & Grooming</h3>
+                        <p>Products, grooming, pet profiles</p>
+                    </div>
+                </a>
+                <!-- 16. Educational Center - Students in classroom -->
+                <a href="education/index.html" class="industry-card">
+                    <img src="https://images.pexels.com/photos/5212345/pexels-photo-5212345.jpeg?auto=compress&cs=tinysrgb&w=600" class="industry-image" alt="Students learning in classroom">
+                    <div class="industry-content">
+                        <h3>Educational Center</h3>
+                        <p>Courses, registration, student portal</p>
+                    </div>
+                </a>
+                <!-- 17. Groceries & Supermarket - Fresh produce aisle -->
+                <a href="groceries/index.html" class="industry-card">
+                    <img src="https://images.pexels.com/photos/264636/pexels-photo-264636.jpeg?auto=compress&cs=tinysrgb&w=600" class="industry-image" alt="Grocery store produce aisle">
+                    <div class="industry-content">
+                        <h3>Groceries & Supermarket</h3>
+                        <p>Online shopping, delivery, weekly deals</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="features" class="features">
+        <div class="container">
+            <h2 class="section-title">What's Included</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">📱</div>
+                    <h3>Mobile Responsive</h3>
+                    <p>Perfect on phones, tablets, and computers</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💬</div>
+                    <h3>WhatsApp Integration</h3>
+                    <p>Orders go directly to your phone</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⚙️</div>
+                    <h3>Manager Dashboard</h3>
+                    <p>Update products and content yourself</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📷</div>
+                    <h3>QR Code Included</h3>
+                    <p>Print for tables, counters, business cards</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3>Google Sheets Database</h3>
+                    <p>No monthly database fees</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔒</div>
+                    <h3>Fast & Secure</h3>
+                    <p>Optimized loading speed</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="pricing" class="pricing">
+        <div class="container">
+            <h2 class="section-title">Simple Pricing</h2>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3>Standard</h3>
+                    <div class="price">₦200,000 <span>one-time</span></div>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check-circle"></i> Complete Website (5-7 pages)</li>
+                        <li><i class="fas fa-check-circle"></i> WhatsApp Integration</li>
+                        <li><i class="fas fa-check-circle"></i> Booking/Ordering System</li>
+                        <li><i class="fas fa-check-circle"></i> QR Code</li>
+                        <li><i class="fas fa-check-circle"></i> 1 Month Support</li>
+                    </ul>
+                    <a href="#contact" class="btn-primary">Get Started</a>
+                </div>
+                <div class="pricing-card featured">
+                    <h3>Managed</h3>
+                    <div class="price">₦150,000 <span>+ ₦50,000/mo</span></div>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check-circle"></i> Everything in Standard</li>
+                        <li><i class="fas fa-check-circle"></i> I Handle ALL Updates</li>
+                        <li><i class="fas fa-check-circle"></i> Add Products for You</li>
+                        <li><i class="fas fa-check-circle"></i> Priority Support (24hr)</li>
+                    </ul>
+                    <a href="#contact" class="btn-primary">Most Popular</a>
+                </div>
+                <div class="pricing-card">
+                    <h3>Custom</h3>
+                    <div class="price">Let's Discuss</div>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check-circle"></i> Custom Features</li>
+                        <li><i class="fas fa-check-circle"></i> Payment Gateway</li>
+                        <li><i class="fas fa-check-circle"></i> User Accounts</li>
+                        <li><i class="fas fa-check-circle"></i> Unlimited Support</li>
+                    </ul>
+                    <a href="#contact" class="btn-primary">Contact Me</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Let's Work Together</h2>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h3>Get in Touch with Michael</h3>
+                    <p>Tell me about your business and I'll get back to you within 24 hours.</p>
+                    <div class="contact-details">
+                        <p><i class="fab fa-whatsapp"></i> WhatsApp / Call: 0803 295 8122</p>
+                        <p><i class="far fa-envelope"></i> Email: michael@websolutions.ng</p>
+                        <p><i class="far fa-clock"></i> Response Time: Within 24 hours</p>
+                    </div>
+                </div>
+                <form id="contact-form">
+                    <div class="form-group"><input type="text" placeholder="Your Full Name" required></div>
+                    <div class="form-group"><input type="email" placeholder="Email Address" required></div>
+                    <div class="form-group"><input type="tel" placeholder="Phone Number" required></div>
+                    <div class="form-group"><input type="text" placeholder="Business Name"></div>
+                    <div class="form-group">
+                        <select>
+                            <option value="">Select Your Industry</option>
+                            <option>Restaurant / Lounge</option>
+                            <option>Baby Care / Maternity</option>
+                            <option>Skincare / Beauty</option>
+                            <option>Boutique / Fashion</option>
+                            <option>Salon / Spa</option>
+                            <option>Hairstylist / Barber</option>
+                            <option>Bakery / Catering</option>
+                            <option>Gym / Fitness</option>
+                            <option>Pharmacy</option>
+                            <option>Photography</option>
+                            <option>Event Planning</option>
+                            <option>Hotel / Lodging</option>
+                            <option>Real Estate</option>
+                            <option>Auto Dealership</option>
+                            <option>Pet Store</option>
+                            <option>Education</option>
+                            <option>Groceries</option>
+                        </select>
+                    </div>
+                    <div class="form-group"><textarea rows="4" placeholder="Tell me about your business and what you need..."></textarea></div>
+                    <button type="submit" class="btn-primary" style="width:100%">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>© 2024 Michael Website Developer — Professional Websites for Nigerian Businesses</p>
+            <p>📞 0803 295 8122 | ✉️ michael@websolutions.ng</p>
+        </div>
+    </footer>
+
+    <script>
+        document.querySelector('.mobile-menu-btn')?.addEventListener('click', function() {
+            const links = document.querySelector('.nav-links');
+            if (links.style.display === 'flex') {
+                links.style.display = 'none';
+            } else {
+                links.style.display = 'flex';
+                links.style.flexDirection = 'column';
+                links.style.position = 'absolute';
+                links.style.top = '70px';
+                links.style.left = '0';
+                links.style.right = '0';
+                links.style.backgroundColor = '#ffffff';
+                links.style.padding = '24px';
+                links.style.boxShadow = '0 10px 15px -3px rgba(0,0,0,0.1)';
+            }
+        });
+
+        document.getElementById('contact-form')?.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const name = this.querySelector('input[placeholder="Your Full Name"]')?.value || '';
+            const phone = this.querySelector('input[placeholder="Phone Number"]')?.value || '';
+            const industry = this.querySelector('select')?.value || '';
+            const message = this.querySelector('textarea')?.value || '';
+            const whatsappMsg = `*New Website Inquiry*%0A%0A*Name:* ${name}%0A*Phone:* ${phone}%0A*Industry:* ${industry}%0A%0A*Message:* ${message}`;
+            window.open(`https://wa.me/2348032958122?text=${whatsappMsg}`, '_blank');
+        });
+    </script>
+</body>
+</html>
