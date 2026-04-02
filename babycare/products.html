@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products | Little Blessings</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background: #fffaf7; color: #2c2c2c; line-height: 1.6; }
+        .container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
+        .navbar {
+            position: fixed; top: 0; width: 100%; background: rgba(255,250,247,0.98); backdrop-filter: blur(10px);
+            box-shadow: 0 2px 15px rgba(0,0,0,0.03); z-index: 1000; padding: 18px 0;
+        }
+        .nav-container { display: flex; justify-content: space-between; align-items: center; max-width: 1280px; margin: 0 auto; padding: 0 24px; }
+        .logo { font-family: 'Playfair Display', serif; font-size: 1.6rem; font-weight: 700; color: #e8a4b0; text-decoration: none; }
+        .logo span { color: #6b8c7c; }
+        .nav-links { display: flex; gap: 28px; align-items: center; }
+        .nav-links a { color: #4a4a4a; text-decoration: none; font-weight: 500; transition: color 0.3s; }
+        .nav-links a:hover, .nav-links a.active { color: #e8a4b0; }
+        .btn-primary { background: #e8a4b0; color: white; padding: 10px 26px; border-radius: 40px; text-decoration: none; font-weight: 600; }
+        .mobile-menu-btn { display: none; font-size: 1.5rem; cursor: pointer; color: #4a4a4a; }
+
+        /* Page header — baby nursery / soft baby items background ✅ FIXED */
+        .page-header {
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.5)),
+                        url('https://images.unsplash.com/photo-1555252333-9f8e92e65df9?w=1600&h=600&fit=crop');
+            background-size: cover; background-position: center; color: white; padding: 160px 0 80px; text-align: center;
+        }
+        .page-header h1 { font-size: 3rem; font-family: 'Playfair Display', serif; margin-bottom: 16px; }
+
+        .products-section { padding: 80px 0; }
+        .category-filter { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; margin-bottom: 50px; }
+        .filter-btn { background: transparent; border: 1px solid #e8a4b0; color: #e8a4b0; padding: 8px 24px; border-radius: 40px; cursor: pointer; font-weight: 500; transition: all 0.3s; }
+        .filter-btn.active, .filter-btn:hover { background: #e8a4b0; color: white; }
+        .products-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 32px; }
+        .product-card { background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 5px 20px rgba(0,0,0,0.03); border: 1px solid #f0e4dc; transition: all 0.3s; }
+        .product-card:hover { transform: translateY(-5px); }
+        .product-image { width: 100%; height: 220px; object-fit: cover; }
+        .product-content { padding: 20px; }
+        .product-content h3 { font-size: 1.1rem; margin-bottom: 8px; }
+        .product-category { color: #e8a4b0; font-size: 0.8rem; margin-bottom: 8px; text-transform: uppercase; }
+        .product-price { color: #6b8c7c; font-weight: 700; font-size: 1.2rem; margin: 12px 0; }
+        .btn-add { background: #e8a4b0; color: white; border: none; padding: 10px 20px; border-radius: 40px; cursor: pointer; width: 100%; font-weight: 600; transition: background 0.3s; }
+        .btn-add:hover { background: #d48c98; }
+
+        .footer { background: #2c3e2f; color: #cbd8cd; padding: 48px 0; text-align: center; }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .mobile-menu-btn { display: block; }
+            .page-header h1 { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">Little <span>Blessings</span></a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="products.html" class="active">Products</a>
+                <a href="registry.html">Baby Registry</a>
+                <a href="classes.html">Classes</a>
+                <a href="gallery.html">Gallery</a>
+                <a href="contact.html">Contact</a>
+                <a href="registry.html" class="btn-primary">Create Registry</a>
+            </div>
+            <div class="mobile-menu-btn"><i class="fas fa-bars"></i></div>
+        </div>
+    </nav>
+
+    <section class="page-header">
+        <div class="container">
+            <h1>Our Products</h1>
+            <p>Safe, high-quality essentials for your little one</p>
+        </div>
+    </section>
+
+    <div class="products-section">
+        <div class="container">
+            <div class="category-filter">
+                <button class="filter-btn active" data-category="all">All</button>
+                <button class="filter-btn" data-category="clothing">Clothing</button>
+                <button class="filter-btn" data-category="gear">Baby Gear</button>
+                <button class="filter-btn" data-category="nursing">Nursing</button>
+                <button class="filter-btn" data-category="bath">Bath &amp; Skincare</button>
+            </div>
+            <div class="products-grid" id="products-grid"></div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <p>© 2024 Little Blessings — Premium Baby Care &amp; Maternity. Website by Michael WebDev</p>
+            <p>📍 Lekki Phase 1, Lagos | 📞 0803 295 8122</p>
+        </div>
+    </footer>
+
+    <script>
+        const products = [
+            {
+                // Organic Cotton Baby Set — baby onesies / soft cotton clothing ✅ FIXED
+                name: "Organic Cotton Baby Set",
+                category: "clothing",
+                price: 12500,
+                image: "https://images.unsplash.com/photo-1519689680058-324335c77eba?w=600&h=400&fit=crop",
+                desc: "Soft, breathable, gentle on sensitive skin"
+            },
+            {
+                // Lightweight Stroller — baby stroller outdoors ✅ FIXED
+                name: "Lightweight Stroller",
+                category: "gear",
+                price: 85000,
+                image: "https://images.unsplash.com/photo-1591378603223-e15b45a81640?w=600&h=400&fit=crop",
+                desc: "Easy fold, smooth ride"
+            },
+            {
+                // Ergonomic Nursing Pillow — nursing/breastfeeding ✅ KEPT
+                name: "Ergonomic Nursing Pillow",
+                category: "nursing",
+                price: 18500,
+                image: "https://images.unsplash.com/photo-1584810761678-9f800ded7a72?w=600&h=400&fit=crop",
+                desc: "Comfort for mom, support for baby"
+            },
+            {
+                // Baby Muslin Swaddle Set — swaddle wraps / muslin cloth ✅ FIXED
+                name: "Baby Muslin Swaddle Set",
+                category: "clothing",
+                price: 8900,
+                image: "https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?w=600&h=400&fit=crop",
+                desc: "Breathable 100% cotton, 4-pack"
+            },
+            {
+                // Convertible Car Seat — baby/child car seat ✅ FIXED
+                name: "Convertible Car Seat",
+                category: "gear",
+                price: 125000,
+                image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=400&fit=crop",
+                desc: "Rear-facing to forward-facing"
+            },
+            {
+                // Electric Breast Pump — nursing/breastfeeding related ✅ KEPT
+                name: "Electric Breast Pump",
+                category: "nursing",
+                price: 45000,
+                image: "https://images.unsplash.com/photo-1584810761678-9f800ded7a72?w=600&h=400&fit=crop",
+                desc: "Quiet, efficient, hospital-grade"
+            },
+            {
+                // Gentle Baby Wash Set — baby bath products ✅ KEPT
+                name: "Gentle Baby Wash Set",
+                category: "bath",
+                price: 6500,
+                image: "https://images.unsplash.com/photo-1563453392212-326f5e854473?w=600&h=400&fit=crop",
+                desc: "Natural ingredients, tear-free formula"
+            },
+            {
+                // Baby Bouncer Seat — baby bouncer / rocker chair ✅ FIXED
+                name: "Baby Bouncer Seat",
+                category: "gear",
+                price: 32000,
+                image: "https://images.unsplash.com/photo-1617711164094-dae2c79b2576?w=600&h=400&fit=crop",
+                desc: "Comfortable, portable, calming vibrations"
+            }
+        ];
+
+        function renderProducts(category) {
+            const grid = document.getElementById('products-grid');
+            const filtered = category === 'all' ? products : products.filter(p => p.category === category);
+            grid.innerHTML = filtered.map(product => `
+                <div class="product-card">
+                    <img src="${product.image}" class="product-image" alt="${product.name}">
+                    <div class="product-content">
+                        <div class="product-category">${product.category}</div>
+                        <h3>${product.name}</h3>
+                        <p style="color:#8b9a8f; font-size:0.85rem;">${product.desc}</p>
+                        <div class="product-price">₦${product.price.toLocaleString()}</div>
+                        <button class="btn-add" onclick="addToCart('${product.name}', ${product.price})">Add to Cart</button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function addToCart(name, price) {
+            alert(`${name} added to cart! Continue shopping or proceed to checkout.`);
+        }
+
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                renderProducts(btn.dataset.category);
+            });
+        });
+
+        renderProducts('all');
+
+        document.querySelector('.mobile-menu-btn')?.addEventListener('click', function() {
+            const links = document.querySelector('.nav-links');
+            if (links.style.display === 'flex') {
+                links.style.display = 'none';
+            } else {
+                links.style.display = 'flex';
+                links.style.flexDirection = 'column';
+                links.style.position = 'absolute';
+                links.style.top = '70px';
+                links.style.left = '0';
+                links.style.right = '0';
+                links.style.backgroundColor = '#fffaf7';
+                links.style.padding = '24px';
+                links.style.boxShadow = '0 10px 15px -3px rgba(0,0,0,0.1)';
+            }
+        });
+    </script>
+</body>
+</html>
