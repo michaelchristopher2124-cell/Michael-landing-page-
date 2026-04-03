@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | Michael Christopher - Web Development</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">Michael <span>Christopher</span></a>
+            <div class="nav-links" id="navLinks">
+                <a href="index.html">Home</a>
+                <a href="services.html">Services</a>
+                <a href="portfolio.html" class="active">Portfolio</a>
+                <a href="pricing.html">Pricing</a>
+                <a href="about.html">About</a>
+                <a href="contact.html" class="btn-contact-nav">Contact</a>
+            </div>
+            <div class="mobile-menu-btn" onclick="toggleMenu()">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <section class="page-header">
+        <div class="container">
+            <h1>My Portfolio</h1>
+            <p>Real websites I've built for Nigerian businesses</p>
+        </div>
+    </section>
+
+    <section class="portfolio-section">
+        <div class="container">
+            <div class="portfolio-grid-full">
+                <div class="portfolio-item">
+                    <div class="portfolio-item-image">
+                        <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=600&h=400&fit=crop" alt="Kingzway Eatery">
+                    </div>
+                    <div class="portfolio-item-content">
+                        <h3>Kingzway Eatery & Lounge</h3>
+                        <p>Restaurant & lounge website with online ordering, full menu display, and WhatsApp order integration. Customers can browse the menu, add items to cart, and place orders directly via WhatsApp.</p>
+                        <div class="portfolio-tech">
+                            <span>Online Ordering</span>
+                            <span>Cart System</span>
+                            <span>WhatsApp Integration</span>
+                            <span>Mobile Responsive</span>
+                        </div>
+                        <a href="https://michaelchristopher2124-cell.github.io/Kingzway-eatery/" class="btn-small" target="_blank">Live Demo →</a>
+                    </div>
+                </div>
+
+                <div class="portfolio-item reverse">
+                    <div class="portfolio-item-image">
+                        <img src="https://images.unsplash.com/photo-1594035910387-fea47794261f?w=600&h=400&fit=crop" alt="Nee Scent">
+                    </div>
+                    <div class="portfolio-item-content">
+                        <h3>Nee Scent Perfumes</h3>
+                        <p>E-commerce website for a perfume brand with product catalog, cart system, and WhatsApp ordering. Includes category filters and bestseller badges.</p>
+                        <div class="portfolio-tech">
+                            <span>E-commerce</span>
+                            <span>Product Catalog</span>
+                            <span>Cart System</span>
+                            <span>SheetDB Integration</span>
+                        </div>
+                        <a href="https://michaelchristopher2124-cell.github.io/Premium-perfumes-/index.html" class="btn-small" target="_blank">Live Demo →</a>
+                    </div>
+                </div>
+
+                <div class="portfolio-item">
+                    <div class="portfolio-item-image">
+                        <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=600&h=400&fit=crop" alt="Luxury Nail NG">
+                    </div>
+                    <div class="portfolio-item-content">
+                        <h3>Luxury Nail NG</h3>
+                        <p>Nail salon website with service booking, product catalog, gallery, and WhatsApp checkout. Includes admin panel for managing products.</p>
+                        <div class="portfolio-tech">
+                            <span>Service Booking</span>
+                            <span>Product Catalog</span>
+                            <span>Admin Panel</span>
+                            <span>Gallery</span>
+                        </div>
+                        <a href="#" class="btn-small">Live Demo →</a>
+                    </div>
+                </div>
+
+                <div class="portfolio-item reverse">
+                    <div class="portfolio-item-image">
+                        <img src="https://images.unsplash.com/photo-1556228578-8c89e6adf883?w=600&h=400&fit=crop" alt="The Eatery Lagos">
+                    </div>
+                    <div class="portfolio-item-content">
+                        <h3>The Eatery Lagos</h3>
+                        <p>Restaurant website with extensive menu display, categories (Main Menu, Soups, Sides, Protein), and WhatsApp ordering system.</p>
+                        <div class="portfolio-tech">
+                            <span>Menu System</span>
+                            <span>Category Filters</span>
+                            <span>WhatsApp Orders</span>
+                            <span>Mobile Responsive</span>
+                        </div>
+                        <a href="https://michaelchristopher2124-cell.github.io/The-eatery-Lagos./" class="btn-small" target="_blank">Live Demo →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="container">
+            <h2>Ready to Build Your Website?</h2>
+            <p>Let's create something amazing for your business.</p>
+            <a href="contact.html" class="btn-primary">Start Your Project →</a>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-logo">Michael <span>Christopher</span></div>
+                    <p>Web development and AI systems for Nigerian businesses.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="portfolio.html">Portfolio</a></li>
+                        <li><a href="pricing.html">Pricing</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><i class="fab fa-whatsapp"></i> <a href="https://wa.me/2348032958122">0803 295 8122</a></li>
+                        <li><i class="fas fa-phone-alt"></i> 0811 240 1459</li>
+                        <li><i class="fas fa-envelope"></i> michaelchristopher2124@gmail.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 Michael Christopher — Web Developer. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/2348032958122" class="wa-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script src="script.js"></script>
+</body>
+</html>
